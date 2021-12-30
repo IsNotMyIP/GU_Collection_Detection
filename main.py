@@ -3,6 +3,8 @@ import numpy as np
 import os
 import pytesseract
 import time
+import re
+import pandas as pd
 from mss import mss
 
 
@@ -67,7 +69,7 @@ class Collection:
         for card in self.cards:
             aux.append([card.name, card.quantity])
         export = np.asarray(aux)
-        np.savetxt('ole.csv', export, delimiter=',', fmt='%s')
+        pd.DataFrame(export).to_csv('ole.csv')
 
 class Card:
     def __init__(self, x, y, w, h):
@@ -135,7 +137,7 @@ def analyzeImage(img, deck, pic):
         if aux.area() > 20000:
             helpo = Card(x, y, w, h)
             if pic:
-                if helpo.getName(img) != '':
+                if re.match(r"\w+", str(helpo.getName(img))):
                     GUS.append(helpo)
                     deck.append(helpo)
 
