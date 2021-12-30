@@ -3,11 +3,9 @@ import numpy as np
 import os
 import pytesseract
 import time
-
 from mss import mss
-from PIL import Image
 
-font = cv2.FONT_HERSHEY_SIMPLEX
+
 pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract'
 TESSDATA_PREFIX = 'C:/Program Files/Tesseract-OCR'
 
@@ -89,9 +87,6 @@ class Card:
     def area(self):
         return self.width * self.height
 
-    def perimeter(self):
-        return self.width * 2 + self.height * 2
-
     def draw(self, img):
         cv2.rectangle(img, (self.x, self.y), (self.x + self.width, self.y + self.height), (0, 255, 0), 2)
 
@@ -101,7 +96,6 @@ class Card:
                       (0, 0, 255), 1)
         cv2.rectangle(img, (self.q_x, self.q_y), (self.q_x + self.q_w, self.q_y + self.q_h),
                       (255, 0, 0), 1)
-
 
     def getName(self, img):
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -116,14 +110,6 @@ class Card:
         self.name = pytesseract.image_to_string(cropped, lang='eng')
 
         self.quantity = pytesseract.image_to_string(numed, config="--psm 6 digits")
-
-def threshCheck(arr, limit):
-    gift = []
-    for ar in arr:
-        if cv2.contourArea(ar) > limit:
-            print(cv2.contourArea(ar, True))
-            gift.append(ar)
-    return gift
 
 
 def dummyData():
@@ -159,41 +145,7 @@ def analyzeImage(img, deck, pic):
 
     return GUS
 
-
-def test():
-    data = dummyData()
-
-    final = []
-    # Intentamos hacer rectangulos legibles de las fotos...  jeje
-
-    bluried = cv2.GaussianBlur(data, (7, 7), 0)
-    b, g, r = cv2.split(bluried)
-    th, threshed1 = cv2.threshold(b, 100, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-    th, threshed2 = cv2.threshold(g, 100, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-    th, threshed3 = cv2.threshold(r, 100, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-    contours, hierarchy = cv2.findContours(threshed3, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    cv2.drawContours(data, contours, -1, (0, 255, 0), 1)
-    cv2.imshow('ojo', data)
-    cv2.waitKey(0)
-
-    GUS = Collection()
-
-    for contour in contours:
-        (x, y, w, h) = cv2.boundingRect(contour)
-        check = Card(x, y, w, h)
-
-        GUS.append(Card(x, y, w, h))
-
-    GUS.cleanAreas(20000)
-
-    GUS.drawCollection(data)
-
-    return False
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print('PyCharm')
 
     bounding_box = {'top': 0, 'left': 0, 'width': 1920, 'height': 1080}
 
@@ -208,28 +160,23 @@ if __name__ == '__main__':
     Gudeck = Collection()
     elbueno = Collection()
     checko = False
-    while True:
 
+    while True:
         sct_img = sct.grab(bounding_box)
         screen = np.array(sct_img, 'uint8')
-
-        # if (time.time() - checkerTime) > checkeatorPS:
-        #    checko = True
-        #    checkerTime = time.time()
-        # ojo.getNamesCards(screen)
 
         ojo = analyzeImage(screen, Gudeck, checko)
         ojo.len = len(ojo.cards)
         ojo.drawCollection(screen)
         ojo.drawNames(screen)
-        cv2.imshow("hoho",screen)
+
+        cv2.imshow("hoho", screen)
 
         # ojo.printNames()
         elbueno.cards += ojo.cards
         elbueno.len = len(elbueno.cards)
 
         fps += 1
-
         if (time.time() - nowTime) > showFPS:
             print("FPS: ", fps / (time.time() - nowTime))
             fps = 0
@@ -237,6 +184,7 @@ if __name__ == '__main__':
                 checko = False
             print("Long aux: ", ojo.len)
             nowTime = time.time()
+
         if (cv2.waitKey(1) & 0xFF) == ord('q'):
             cv2.destroyAllWindows()
             elbueno.getInfo()
@@ -244,5 +192,3 @@ if __name__ == '__main__':
         elif (cv2.waitKey(1) & 0xFF) == ord('l'):
             print("fotiko")
             checko = True
-
-    print("lali")
