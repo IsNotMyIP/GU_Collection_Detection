@@ -195,26 +195,63 @@ def getCardsListed(name):
 def getSalesVolume(proto, days):
     #.........
     return
+
+#@Params:   direction           - str
+#           include_fees        - str(true/false)
+#           order_by            - str               =buy_quantity
+#           page_size           - int               =200
+#           sell_token_address  - str               =0xacb3c6a43d15b907e8433077b6d38ae40936fe2c
+#           sell_token_type     - str               =ERC721
+#           status              - str               =active
+#           sell_token_name     - str               =Moonbeam
+#           sell_metadata       - json              =%7B%22quality%22%3A%5B%22Diamond%22%5D%7D&buy_token_type=ET
+
+#Get others from a card sorted by buying quantity
+def getOrders(direction,include_fees,order_by,page_size,sell_token_address,sell_token_type,status,sell_token_name,sell_metadata):
+    url = "https://api.x.immutable.com/v1/orders?" \
+          "direction=asc" \
+          "&include_fees=true" \
+          "&order_by=buy_quantity" \
+          "&page_size=200" \
+          "&sell_token_address=0xacb3c6a43d15b907e8433077b6d38ae40936fe2c" \
+          "&sell_token_type=ERC721" \
+          "&status=active" \
+          "&sell_token_name=Moonbeam" \
+          "&sell_metadata=%7B%22quality%22%3A%5B%22Diamond%22%5D%7D&buy_token_type=ETH"
+
+    response = requests.get(url)
+    data = response.json()
+    data = data["result"]
+    output_jsonaux = json.dumps(data, indent=4)
+
+    print(output_jsonaux)
+    return
+
+
+
+
+
 #_________________
+getOrders()
 
-data = extractData('ole.csv')
-data.dropna(subset=['Name'],inplace=True)
-print(data.sort_values(by="Cantidad",ascending=False).head(20))
-print(data['Cantidad'].sum())
-print(data.columns)
-
-
-ojalases = []
-for item in data.itertuples():
-
-    asd = getDataCard(item.Name, item.Quantity)
-    print(asd)
-
-    if type(asd) != None:
-        ojalases.append(asd)
-        print(ojalases)
-    print("____________")
-    print(ojalases)
-
-
+# data = extractData('ole.csv')
+# data.dropna(subset=['Name'],inplace=True)
+# print(data.sort_values(by="Cantidad",ascending=False).head(20))
+# print(data['Cantidad'].sum())
+# print(data.columns)
+#
+#
+# ojalases = []
+# for item in data.itertuples():
+#
+#     asd = getDataCard(item.Name, item.Quantity)
+#     print(asd)
+#
+#     if type(asd) != None:
+#         ojalases.append(asd)
+#         print(ojalases)
+    # print("____________")
+    # print(ojalases)
+#
+#
 print("sefini")
