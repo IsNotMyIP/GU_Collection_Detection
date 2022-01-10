@@ -19,8 +19,12 @@ dataFrame = pd.DataFrame({'Name': pd.Series(dtype='str'),
                           'Description': pd.Series(dtype='str'),
                           'Quantity': pd.Series(dtype='int'),
                           'GOD': pd.Series(dtype='str'),
-                          'Proto_Code': pd.Series(dtype='int'),
-                          'Price': pd.Series(dtype='float')
+                          'Price': pd.Series(dtype='float'),
+                          'Set': pd.Series(dtype='str'),
+                          'Tribe': pd.Series(dtype='str'),
+                          'Attack': pd.Series(dtype='int'),
+                          'Health': pd.Series(dtype='int'),
+                          'Rarity': pd.Series(dtype='str')
                         })
 
 
@@ -191,7 +195,6 @@ def getCardsListed(name):
 def getSalesVolume(proto, days):
     #.........
     return
-
 #_________________
 
 data = extractData('ole.csv')
