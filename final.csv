@@ -1,47 +1,152 @@
 ,0,1,2,3,4,5,6,7,8,9,10,11
-0,Spartan,3,Roar: This creature gets +1 strength for every two Olympians in your void.,2.0,neutral,0,core,olympian,2,3,epic,"[0.94, 0.000695]"
-1,Ballista,3,"Backline.
-Ability: Deal 2 damage.",1.0,neutral,0,core,structure,0,3,epic,"[0.85, 0.000646]"
-2,Battlebard,1,Roar: Give a friendly Viking +2 strength.,2.0,neutral,0,core,viking,2,1,epic,"[1.0, 0.000812]"
-3,Fickle Cambion,3,"Whenever your god gains health, this creature gets +1 health.
-Whenever your god loses health, this creature gets +1 strength.",1.0,death,0,core,nether,3,3,epic,"[4.79, 0.003615]"
-4,Switch Duelist,1,"Hidden for 1 turn. At the end of each player's turn, swap this creature's strength and health.",4.0,deception,0,core,guild,3,1,rare,"[0.56, 0.000465]"
-5,Street Conjuror,1,Spell boost +1.,2.0,magic,0,core,mystic,1,3,rare,"[0.58999, 0.00051]"
-6,Judge Envoy,7,"Whenever you summon a creature, give it +1/+2.",4.0,neutral,0,core,aether,6,7,epic,"[0.73, 0.000625]"
-7,Tomb Blademaster,7,"Frontline.
-Afterlife: Summon two 3/2 Ancient Executioners with frontline.",1.0,neutral,0,core,anubian,3,4,epic,"[0.88, 0.000697]"
-8,Pyrrhic Hatchling,2,Creatures damaged by this creature get burn +1.,2.0,neutral,0,core,dragon,2,3,rare,"[0.322, 0.000259]"
-9,Onyx Nightblade,2,Roar: Destroy a creature with strength 1 or less.,4.0,neutral,0,core,guild,1,2,rare,"[0.354, 0.000283]"
-10,Sentient Amphora,2,"Frontline. Cannot attack.
-Afterlife: Draw a card.",1.0,neutral,0,core,atlantean,0,2,rare,"[0.3239, 0.00022]"
-11,Wicked Fae,2,"Roar: Deal 1 damage to a creature, and summon a 1/1 Impling.",3.0,neutral,0,core,nether,1,1,rare,"[0.4589, 0.0003269]"
-12,Inspiring Skald,2,"Roar: If you are frenzied, give twin strike to the weakest creature in your hand.",1.0,war,0,order,viking,2,3,rare,"[0.045, 3.59e-05]"
-13,Pyreshell Beetle,1,Creatures damaged by this creature get burn +1.,3.0,neutral,0,core,wild,1,3,rare,"[0.369, 0.00033]"
-14,Athenian Archer,1,Roar: Deal 1 damage to an enemy creature.,2.0,neutral,0,core,olympian,1,2,rare,"[0.35, 0.0003]"
-15,Runed Asp,2,"Roar: Pick one - Gain ""Afterlife: Both gods unlock a mana lock."" or ""Afterlife: Both gods draw a card"".",2.0,death,0,core,anubian,2,1,rare,"[0.349, 0.00031]"
-16,Pyrrhic Adolescent,4,Creatures damaged by this creature get burn +1.,3.0,neutral,0,core,dragon,4,4,rare,"[0.315, 0.00023]"
-17,Vampiric Skull,6,"Roar: Summon a creature that costs 3 mana or less from your void, give it soulless.",2.0,death,0,core,nether,6,6,rare,"[0.49, 0.00038]"
-18,Stormstress,6,Roar: Deal 1 damage to each enemy creature.,2.0,neutral,0,core,mystic,4,5,rare,"[0.319, 0.0002154]"
-19,Felid Assassin,1,Hidden. Flank.,3.0,deception,0,core,nether,3,1,common,"[0.106, 9e-05]"
-20,Furies,7,"Roar: Summon two Furies. If there are six or more Olympians in your void, your Furies gain +1 strength and blitz.",3.0,war,0,genesis,olympian,3,3,epic,"[9.5, 0.007962]"
-21,Amazon Conscript,1,Roar: Remove confused from a friendly creature.,5.0,nature,0,core,amazon,2,2,common,"[0.12499, 9.9e-05]"
-22,Tomb Torchbearer,1,Protected.,5.0,neutral,0,core,anubian,1,1,common,"[0.102, 6.9e-05]"
-23,Shieldbearer,1,Roar: Give +1/+1 to a friendly creature.,5.0,neutral,0,core,olympian,1,1,common,"[0.1099, 8.8e-05]"
-24,Spellsight Seer,1,Roar: Foresee 1.,1.0,magic,0,core,mystic,2,2,common,"[0.11, 8.1e-05]"
-25,Furies,7,"Roar: Summon two Furies. If there are six or more Olympians in your void, your Furies gain +1 strength and blitz.",3.0,war,0,genesis,olympian,3,3,epic,"[9.5, 0.007962]"
-26,Rampart,1,"Frontline. Can't attack.
-At the end of each turn, set this creature's strength to 0.",3.0,neutral,0,core,structure,0,6,common,"[0.123, 8.9e-05]"
-27,Trial Spirit,1,Roar: Give a friendly creature +1 health.,5.0,neutral,0,core,aether,1,3,common,"[0.149, 0.000139]"
-28,Arkmonian Anteater,1,Roar: Give a friendly Amazon strength +1.,5.0,neutral,0,core,wild,1,3,common,"[0.1048, 7.7e-05]"
-29,Felid Protector,1,Frontline.,3.0,neutral,0,core,olympian,2,2,common,"[0.108, 8.8e-05]"
-30,Devoted Follower,2,"Ward.
-Creatures damaged by this creature get -2 strength.",2.0,light,0,core,mystic,3,2,common,"[0.185, 0.000156]"
-31,Cursed Hoplite,3,"Armor 1.
-Afterlife: Summon a 1/1 Skeleton with armor 1.",4.0,death,0,order,olympian,3,1,rare,"[0.0179, 1.339e-05]"
-32,Ranger Firstbow,2,Roar: Deal 1 damage to an enemy creature.,5.0,neutral,0,core,olympian,2,2,common,"[0.11369, 8.5e-05]"
-33,Duergar Priest,2,Roar: Heal your god for 2.,6.0,neutral,0,core,mystic,2,2,common,"[0.11, 7.2e-05]"
-34,Jinxblade Duelist,3,"At the end of each turn, give this creature +1 health if your opponent controls a creature.",3.0,deception,0,core,guild,4,2,common,"[0.109, 9.9e-05]"
-35,Vrock,3,Roar & afterlife: Both players draw a card.,3.0,death,0,core,nether,4,2,common,"[0.1634999, 0.000159]"
-36,Bronze Servant,3,Roar: Remove 2 durability from your opponent's relic.,4.0,neutral,0,core,anubian,2,4,common,"[0.109, 9.6e-05]"
-37,Bright Mage,3,"Ward.
-Roar: Heal a friendly character for 2.",1.0,light,0,core,mystic,3,3,common,"[0.16, 0.000137]"
+0,Amazon Conscript,1,Roar: Remove confused from a friendly creature.,"6
+",nature,0,core,amazon,2,2,common,"[0.12499, 9.7e-05]"
+1,Battlebard,1,Roar: Give a friendly Viking +2 strength.,"2
+",neutral,0,core,viking,2,1,epic,"[1.0, 0.000802]"
+2,Street Conjuror,1,Spell boost +1.,"2
+",magic,0,core,mystic,1,3,rare,"[0.589, 0.0005]"
+3,Spellsight Seer,1,Roar: Foresee 1.,"1
+",magic,0,core,mystic,2,2,common,"[0.11, 8.1e-05]"
+4,Switch Duelist,1,"Hidden for 1 turn. At the end of each player's turn, swap this creature's strength and health.","3
+",deception,0,core,guild,3,1,rare,"[0.6045, 0.000455]"
+5,Furies,7,"Roar: Summon two Furies. If there are six or more Olympians in your void, your Furies gain +1 strength and blitz.","3
+",war,0,genesis,olympian,3,3,epic,"[9.5, 0.007962]"
+6,Wiccan Warrior,1,Hidden for 1 turn.,"4
+",neutral,0,core,amazon,2,2,common,"[0.114, 9.1e-05]"
+7,Felid Protector,1,Frontline.,"3
+",neutral,0,core,olympian,2,2,common,"[0.108, 8.8e-05]"
+8,Tomb Torchbearer,1,Protected.,"7
+",neutral,0,core,anubian,1,1,common,"[0.102, 7.1e-05]"
+9,Shieldbearer,1,Roar: Give +1/+1 to a friendly creature.,"5
+",neutral,0,core,olympian,1,1,common,"[0.11, 0.00011]"
+10,Pyreshell Beetle,1,Creatures damaged by this creature get burn +1.,"3
+",neutral,0,core,wild,1,3,rare,"[0.367, 0.00033]"
+11,Athenian Archer,1,Roar: Deal 1 damage to an enemy creature.,"2
+",neutral,0,core,olympian,1,2,rare,"[0.38, 0.000299]"
+12,Rampart,1,"Frontline. Can't attack.
+At the end of each turn, set this creature's strength to 0.","5
+",neutral,0,core,structure,0,6,common,"[0.123, 8.9e-05]"
+13,Black Jaguar,2,Confused. Regen 1.,"1
+",nature,0,core,wild,3,3,common,"[0.4399, 0.000359]"
+14,Devoted Follower,2,"Ward.
+Creatures damaged by this creature get -2 strength.","3
+",light,0,core,mystic,3,2,common,"[0.185, 0.000156]"
+15,Runed Asp,2,"Roar: Pick one - Gain ""Afterlife: Both gods unlock a mana lock."" or ""Afterlife: Both gods draw a card"".","2
+",death,0,core,anubian,2,1,rare,"[0.35, 0.00031]"
+16,Cursed Hoplite,3,"Armor 1.
+Afterlife: Summon a 1/1 Skeleton with armor 1.","5
+",death,0,order,olympian,3,1,rare,"[0.0189, 1.2e-05]"
+17,Ranger Firstbow,2,Roar: Deal 1 damage to an enemy creature.,"5
+",neutral,0,core,olympian,2,2,common,"[0.11369, 8.2e-05]"
+18,Duergar Priest,2,Roar: Heal your god for 2.,"7
+",neutral,0,core,mystic,2,2,common,"[0.11, 7.2e-05]"
+19,Pyrrhic Hatchling,2,Creatures damaged by this creature get burn +1.,"2
+",neutral,0,core,dragon,2,3,rare,"[0.323, 0.000259]"
+20,Inspiring Skald,2,"Roar: If you are frenzied, give twin strike to the weakest creature in your hand.","2
+",war,0,order,viking,2,3,rare,"[0.039, 3.59e-05]"
+21,Jinxblade Duelist,3,"At the end of each turn, give this creature +1 health if your opponent controls a creature.","4
+",deception,0,core,guild,4,2,common,"[0.119, 9.8e-05]"
+22,Vrock,3,Roar & afterlife: Both players draw a card.,"3
+",death,0,core,nether,4,2,common,"[0.1634999, 0.000159]"
+23,Mana Toad,3,Afterlife: Unlock a mana lock.,"3
+",magic,0,core,wild,2,1,common,"[0.2397, 0.000154]"
+24,Bright Mage,3,"Ward.
+Roar: Heal a friendly character for 2.","1
+",light,0,core,mystic,3,3,common,"[0.16, 0.000155]"
+25,Fickle Cambion,3,"Whenever your god gains health, this creature gets +1 health.
+Whenever your god loses health, this creature gets +1 strength.","1
+",death,0,core,nether,3,3,epic,"[4.4999, 0.003655]"
+26,Aether Battlescout,3,Flank.,"4
+",neutral,0,core,aether,5,2,common,"[0.106, 7.2e-05]"
+27,Mire Bloodworm,3,"Frontline.
+Creatures damaged by this creature get burn +1.","4
+",neutral,0,core,wild,1,4,rare,"[0.339, 0.00026]"
+28,Spartan,3,Roar: This creature gets +1 strength for every two Olympians in your void.,"2
+",neutral,0,core,olympian,2,3,epic,"[0.94, 0.000695]"
+29,Ballista,3,"Backline.
+Ability: Deal 2 damage.","1
+",neutral,0,core,structure,0,3,epic,"[0.845, 0.000646]"
+30,Dwarf Atlant,3,Roar: Deal 1 damage to an enemy creature.,,neutral,0,core,atlantean,1,5,common,"[0.102, 8.2e-05]"
+31,Bronze Servant,3,Roar: Remove 2 durability from your opponent's relic.,"4
+",neutral,0,core,anubian,2,4,common,"[0.109, 9.6e-05]"
+32,Overgrown Rhino,4,Confused.,"2
+",nature,0,core,wild,5,5,common,"[0.269, 0.000222]"
+33,Nefarious Briar,4,"Regen 1.
+Roar: Remove 4 durability from your opponent's relic.","4
+",nature,0,core,wild,3,4,common,"[0.149, 0.000119]"
+34,Soothsayer,4,Roar: Foresee 3. Draw a card.,"3
+",magic,0,core,mystic,2,3,rare,"[0.399, 0.000268]"
+35,Famished Ghoul,4,"Whenever a creature dies, its owner draws a card.","1
+",death,0,core,nether,4,4,common,"[0.124, 0.0001]"
+36,Patience Priestess,4,"Whenever you summon a friendly creature, give it +1 health and frontline.","2
+",light,0,core,mystic,2,3,rare,"[0.33, 0.00026]"
+37,Thebian Brawler,4,Frontline.,"7
+",neutral,0,core,olympian,2,6,common,"[0.141, 9.3e-05]"
+38,Highland Defender,4,Roar: Summon a 1/1 Huscarl with frontline.,"3
+",neutral,0,core,viking,4,3,common,"[0.115, 8.8e-05]"
+39,Pharaoh's Guard,4,Afterlife: Summon a 2/1 Skeletal Guard.,"5
+",neutral,0,core,anubian,4,2,common,"[0.104, 7.7e-05]"
+40,Traveling Bard,4,Roar: Give another random friendly creature +2/+1.,"4
+",neutral,0,core,guild,3,2,common,"[0.1049, 8.9e-05]"
+41,Pyrrhic Adolescent,4,Creatures damaged by this creature get burn +1.,"3
+",neutral,0,core,dragon,4,4,rare,"[0.315, 0.00023]"
+42,Atlant Phalanx,5,Frontline.,"5
+",neutral,0,core,atlantean,5,4,common,"[0.1074, 7.2e-05]"
+43,Jungle Princess,5,"Frontline.
+Roar: Summon two 1/1 Hyenas.","5
+",neutral,0,core,amazon,4,3,common,"[0.1288, 9.2e-05]"
+44,Cursed Caipora,5,Protected. Frontline. Deadly.,"3
+",neutral,0,core,amazon,1,2,rare,"[0.313, 0.00023]"
+45,Tainted Treant,5,"Regen 1.
+At the end of your turn, add a random Nature card to your hand.","4
+",nature,0,core,wild,2,4,common,"[0.14, 0.000108]"
+46,Catapult,5,"Backline.
+Ability: Deal 3 damage.","4
+",neutral,0,core,structure,0,5,epic,"[0.9, 0.00059]"
+47,Manathirst Golem,5,"After you cast a spell, this creature gains +2/+1.","3
+",magic,0,core,atlantean,4,4,common,"[0.128, 9.8e-05]"
+48,Bonepact Hunter,4,Roar: Give a friendly Amazon +3 strength.,"3
+",neutral,0,genesis,amazon,3,3,rare,"[0.108, 8.8e-05]"
+49,Vampiric Skull,6,"Roar: Summon a creature that costs 3 mana or less from your void, give it soulless.","2
+",death,0,core,nether,6,6,rare,"[0.48, 0.00038]"
+50,Harp Cupid,6,Roar: Set a creature's strength and health to 2.,"2
+",light,0,core,aether,2,4,common,"[0.103, 7.9e-05]"
+51,Minotaur Phalanx,6,Frontline.,"4
+",neutral,0,core,wild,4,8,common,"[0.118, 8.7e-05]"
+52,Green Giant,6,Confused. Overkill.,"4
+",nature,0,core,wild,7,8,common,"[0.1497, 0.000115]"
+53,Stormstress,6,Roar: Deal 1 damage to each enemy creature.,"3
+",neutral,0,core,mystic,4,5,rare,"[0.319, 0.0002154]"
+54,Amazon Flanker,6,"Flank.
+Roar: Summon two Amazon Flankers.","4
+",neutral,0,core,amazon,2,2,rare,"[0.298, 0.000219]"
+55,Thaumnetic Golem,6,"At the end of your turn, give each other friendly Atlantean +1 strength.","3
+",neutral,0,core,atlantean,5,7,epic,"[0.75, 0.00051]"
+56,Aether Vanguard,6,Roar: Deal 2 damage to two enemy creatures. You may select the same creature twice.,"1
+",neutral,0,core,aether,4,4,epic,"[1.2629, 0.00093]"
+57,Minotaur Phalanx,6,Frontline.,"4
+",neutral,0,core,wild,4,8,common,"[0.118, 8.7e-05]"
+58,Green Giant,6,Confused. Overkill.,"4
+",nature,0,core,wild,7,8,common,"[0.1497, 0.000115]"
+59,Stormstress,6,Roar: Deal 1 damage to each enemy creature.,"3
+",neutral,0,core,mystic,4,5,rare,"[0.319, 0.0002154]"
+60,Amazon Flanker,6,"Flank.
+Roar: Summon two Amazon Flankers.","4
+",neutral,0,core,amazon,2,2,rare,"[0.298, 0.000219]"
+61,Thaumnetic Golem,6,"At the end of your turn, give each other friendly Atlantean +1 strength.","3
+",neutral,0,core,atlantean,5,7,epic,"[0.75, 0.00051]"
+62,Aether Vanguard,6,Roar: Deal 2 damage to two enemy creatures. You may select the same creature twice.,"1
+",neutral,0,core,aether,4,4,epic,"[1.262, 0.00093]"
+63,Cyclops Defender,7,Frontline.,"5
+",neutral,0,core,wild,6,10,common,"[0.117, 8.4e-05]"
+64,Judge Envoy,7,"Whenever you summon a creature, give it +1/+2.","1
+",neutral,0,core,aether,6,7,epic,"[0.73, 0.000625]"
+65,Tomb Blademaster,7,"Frontline.
+Afterlife: Summon two 3/2 Ancient Executioners with frontline.","1
+",neutral,0,core,anubian,3,4,epic,"[0.88, 0.00055]"
+66,Double Dealer,7,Roar: Draw two cards. Two random cards in your opponent's hand are shuffled into their deck.,"5
+",deception,0,core,guild,2,1,common,"[0.103, 7.2e-05]"
+67,Anti-Magic Expert,8,Roar: Gain control of an enemy creature until the end of turn. Give it godblitz. It goes to sleep at the end of turn.,"5
+",deception,0,core,guild,3,10,common,"[0, 0]"
+68,Tome Golem,8,Roar: Draw four cards.,"2
+",magic,0,core,atlantean,8,8,common,"[0.1089, 7.9e-05]"
