@@ -5,6 +5,8 @@ import requests
 import json
 import requests
 
+import urllib.parse
+
 #DataFrame de Cartas.
     #Nombre
     #Mana Cost
@@ -207,25 +209,87 @@ def getSalesVolume(proto, days):
 #           sell_metadata       - json              =%7B%22quality%22%3A%5B%22Diamond%22%5D%7D&buy_token_type=ET
 
 #Get others from a card sorted by buying quantity
-def getOrders(direction,include_fees,order_by,page_size,sell_token_address,sell_token_type,status,sell_token_name,sell_metadata):
+#direction ---------(str) (default) "asc" / "dsc"
+#include_fees ------(str) (default) "true" / "false"
+#order_by ----------(str) (default) "buy_quantity" /  /  /  /
+#page_size ---------(str) (default) 200
+#sell_token_address-(str) (default) "0xacb3c6a43d15b907e8433077b6d38ae40936fe2c" -> coleccion GU
+#sell_token_type ---(str) (default) "ERC721"
+#status ------------(str) (default) "active"
+#sell_token_name ---(str) (default) "Moonbeam"
+#sell_metadata -----(str) (default) None / {
+#                 "name": "BeastMode by XCOPY - Core Crypto 2021 (146/150)",
+#                 "uuid": "4a8dea3f-128d-4774-a04e-ca7176af09b6",
+#                 "cardId": 22892,
+#                 "signed": false,
+#                 "cache_for": 600,
+#                 "image_url": "https://cdn2.kolectiv.gg/card/render/34/117/402x670/4a8dea3f-128d-4774-a04e-ca7176af09b6.png",
+#                 "mintNumber": 146,
+#                 "totalMinted": 150,
+#                 "external_url": "https://kolectiv.gg/asset/4a8dea3f-128d-4774-a04e-ca7176af09b6",
+#                 "cardTemplateId": 117
+#             },
+#buy_token_type ----(str) (default) "ETH" / "ERC20" (Gods) / "ERC721"
+# ToDo: investigate posibilitys: - order_by, sell_token_type, buy_token_type,
+def getOrders(direction= "asc",
+              include_fees= "true",
+              order_by= "buy_quantity",
+              page_size= "1",
+              sell_token_address= "0xacb3c6a43d15b907e8433077b6d38ae40936fe2c",
+              sell_token_type= "ERC721",
+              status= "active",
+              sell_token_name= "Moonbeam",
+              sell_metadata= "",
+              buy_token_address= "0xccc8cb5229b0ac8069c51fd58367fd1e622afd97"):
+
+    sell_metadata = urllib.parse.quote('{"quality":["Diamond"]}')
+    print(sell_metadata)
+
     url = "https://api.x.immutable.com/v1/orders?" \
-          "direction=asc" \
-          "&include_fees=true" \
-          "&order_by=buy_quantity" \
-          "&page_size=200" \
-          "&sell_token_address=0xacb3c6a43d15b907e8433077b6d38ae40936fe2c" \
-          "&sell_token_type=ERC721" \
-          "&status=active" \
-          "&sell_token_name=Moonbeam" \
-          "&sell_metadata=%7B%22quality%22%3A%5B%22Diamond%22%5D%7D&buy_token_type=ETH"
+          "direction=" + direction+\
+          "&include_fees=" + include_fees+ \
+          "&order_by=" + order_by+ \
+          "&page_size=" + page_size+ \
+          "&sell_token_address=" + sell_token_address+ \
+          "&sell_token_type=" + sell_token_type+ \
+          "&status=" + status+ \
+          "&sell_token_name=" + sell_token_name+ \
+          "&sell_metadata=" + sell_metadata+ \
+          "&buy_token_address=" + buy_token_address
 
     response = requests.get(url)
     data = response.json()
     data = data["result"]
     output_jsonaux = json.dumps(data, indent=4)
 
+
     print(output_jsonaux)
-    return
+
+    GODS_price = float(data[0]["buy"]["data"]["quantity"])/pow(10,float(data[0]["buy"]["data"]["decimals"]))
+
+    buy_token_address = "ETH"
+    url = "https://api.x.immutable.com/v1/orders?" \
+          "direction=" + direction + \
+          "&include_fees=" + include_fees + \
+          "&order_by=" + order_by + \
+          "&page_size=" + page_size + \
+          "&sell_token_address=" + sell_token_address + \
+          "&sell_token_type=" + sell_token_type + \
+          "&status=" + status + \
+          "&sell_token_name=" + sell_token_name + \
+          "&sell_metadata=" + sell_metadata + \
+          "&buy_token_type=" + buy_token_address
+
+    response = requests.get(url)
+    data = response.json()
+    data = data["result"]
+    ETH_price = float(data[0]["buy"]["data"]["quantity"])/pow(10,float(data[0]["buy"]["data"]["decimals"]))
+    print("Gods price: " + str(GODS_price))
+    print("ETH price: " + str(ETH_price))
+    #print(data[0]["buy"]["data"]["quantity"])
+
+
+    return [GODS_price, ETH_price]
 
 
 
