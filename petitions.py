@@ -305,7 +305,6 @@ getOrders()
 data = extractData('ole.csv')
 data.dropna(subset=['Name'],inplace=True)
 print(data.sort_values(by="Cantidad",ascending=False).head(20))
-print(data['Cantidad'].sum())
 print(data.columns)
 
 ojalases = []
