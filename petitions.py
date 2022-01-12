@@ -1,6 +1,5 @@
 import pandas as pd
 import os
-import requests
 
 import json
 import requests
@@ -242,7 +241,7 @@ def getOrders(direction= "asc",
               sell_metadata= "",
               buy_token_address= "0xccc8cb5229b0ac8069c51fd58367fd1e622afd97"):
 
-    sell_metadata = urllib.parse.quote('{"quality":["Diamond"]}')
+    sell_metadata = urllib.parse.quote('{"quality":["Meteorite"]}')
     print(sell_metadata)
 
     url = "https://api.x.immutable.com/v1/orders?" \
@@ -261,11 +260,14 @@ def getOrders(direction= "asc",
     data = response.json()
     data = data["result"]
     output_jsonaux = json.dumps(data, indent=4)
-
+    GODS_price = 0
 
     print(output_jsonaux)
+    if data != []:
+        print("aca")
+        print(data)
+        GODS_price = float(data[0]["buy"]["data"]["quantity"])/pow(10,float(data[0]["buy"]["data"]["decimals"]))
 
-    GODS_price = float(data[0]["buy"]["data"]["quantity"])/pow(10,float(data[0]["buy"]["data"]["decimals"]))
 
     buy_token_address = "ETH"
     url = "https://api.x.immutable.com/v1/orders?" \
@@ -283,7 +285,9 @@ def getOrders(direction= "asc",
     response = requests.get(url)
     data = response.json()
     data = data["result"]
-    ETH_price = float(data[0]["buy"]["data"]["quantity"])/pow(10,float(data[0]["buy"]["data"]["decimals"]))
+    ETH_price = 0
+    if len(data) > 0:
+        ETH_price = float(data[0]["buy"]["data"]["quantity"])/pow(10,float(data[0]["buy"]["data"]["decimals"]))
     print("Gods price: " + str(GODS_price))
     print("ETH price: " + str(ETH_price))
     #print(data[0]["buy"]["data"]["quantity"])
@@ -298,24 +302,28 @@ def getOrders(direction= "asc",
 #_________________
 getOrders()
 
-# data = extractData('ole.csv')
-# data.dropna(subset=['Name'],inplace=True)
-# print(data.sort_values(by="Cantidad",ascending=False).head(20))
-# print(data['Cantidad'].sum())
-# print(data.columns)
-#
-#
-# ojalases = []
-# for item in data.itertuples():
-#
-#     asd = getDataCard(item.Name, item.Quantity)
-#     print(asd)
-#
-#     if type(asd) != None:
-#         ojalases.append(asd)
-#         print(ojalases)
-    # print("____________")
-    # print(ojalases)
-#
-#
+data = extractData('ole.csv')
+data.dropna(subset=['Name'],inplace=True)
+print(data.sort_values(by="Cantidad",ascending=False).head(20))
+print(data['Cantidad'].sum())
+print(data.columns)
+
+ojalases = []
+for item in data.itertuples():
+    if len(item) > 0:
+        asd = getDataCard(item.Name, item.Cantidad)
+        price = getOrders(sell_token_name = item.Name)
+        print("Nombre: " + item.Name)
+        print("Price ETh: " + str(price[1]) + "  Price GODS: "+  str(price[0]))
+        asd.append(price)
+        print(asd)
+        if type(asd) != None and len(asd)>2:
+          ojalases.append(asd)
+          print(ojalases)
+    print("____________")
+    print(ojalases)
+yaves = pd.DataFrame(ojalases)
+pd.DataFrame(yaves).to_csv('final.csv')
+print("=============")
+print(yaves)
 print("sefini")
