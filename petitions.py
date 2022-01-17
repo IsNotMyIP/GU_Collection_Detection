@@ -238,6 +238,7 @@ def getSalesVolume(proto, days):
 #             },
 #buy_token_type ----(str) (default) "ETH" / "ERC20" (Gods) / "ERC721"
 # ToDo: investigate posibilitys: - order_by, sell_token_type, buy_token_type,
+#     - Check the possibility of receive X orders and get the price by the mean of all of them
 def getOrders(direction= "asc",
               include_fees= "true",
               order_by= "buy_quantity",
