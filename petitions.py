@@ -90,19 +90,27 @@ def getDataCard(name, quantity):
     auxDF = []    # input_dict['result']
         #input_dict['result']['metadata']['name']
     # input_dict['cursor']
+    #Effect empty are null
+    efecto = ""
     try:
         if len(input_dict['result']) > 0:
             cartika = input_dict['result'][0]['metadata']
-            print("Recopilando información de " + cartika['name'])
+            print("[GetDataCard] Recopilando información de " + cartika['name'])
+            efecto = cartika['effect']
             try:
-                auxDF = [cartika['name'], cartika['mana'], cartika['effect'], quantity, cartika['god'], 0, cartika['set'], cartika['tribe'], cartika['attack'], cartika['health'], cartika['rarity']]
-            except:
-                print("error")
-                auxDF =[]
+                auxDF = [cartika['name'], cartika['mana'], efecto, quantity, cartika['god'], 0, cartika['set'], cartika['tribe'], cartika['attack'], cartika['health'], cartika['rarity']]
+            except Exception as e:
+                print("[GetDataCard] error ", e, input_dict['result'])
+                cartika = input_dict['result'][0]['metadata']
+                efecto = cartika['effect']
+                auxDF = [cartika['name'], cartika['mana'], efecto, quantity, cartika['god'], 0, cartika['set'], 'nope', 0, 0, cartika['rarity']]
         else:
+            print("[GetDataCard] No resultado", input_dict)
+
             cartika = False
         return auxDF
-    except:
+    except Exception as ex:
+        print("[GetDataCard] A chuparla con", name, ex, input_dict)
         return auxDF
 
 #@Params: name, str, quantity, int, GuDeck, DataFrame
@@ -242,7 +250,6 @@ def getOrders(direction= "asc",
               buy_token_address= "0xccc8cb5229b0ac8069c51fd58367fd1e622afd97"):
 
     sell_metadata = urllib.parse.quote('{"quality":["Meteorite"]}')
-    print(sell_metadata)
 
     url = "https://api.x.immutable.com/v1/orders?" \
           "direction=" + direction+\
@@ -264,10 +271,11 @@ def getOrders(direction= "asc",
 
     print(output_jsonaux)
     if data != []:
-        print("aca")
+        print("Data lleno")
         print(data)
         GODS_price = float(data[0]["buy"]["data"]["quantity"])/pow(10,float(data[0]["buy"]["data"]["decimals"]))
-
+    else:
+        print("DataVacio en GetOrders")
 
     buy_token_address = "ETH"
     url = "https://api.x.immutable.com/v1/orders?" \
@@ -288,8 +296,6 @@ def getOrders(direction= "asc",
     ETH_price = 0
     if len(data) > 0:
         ETH_price = float(data[0]["buy"]["data"]["quantity"])/pow(10,float(data[0]["buy"]["data"]["decimals"]))
-    print("Gods price: " + str(GODS_price))
-    print("ETH price: " + str(ETH_price))
     #print(data[0]["buy"]["data"]["quantity"])
 
 
@@ -304,26 +310,31 @@ getOrders()
 
 data = extractData('ole.csv')
 data.dropna(subset=['Name'],inplace=True)
-print(data.sort_values(by="Cantidad",ascending=False).head(20))
-print(data.columns)
 
 ojalases = []
+count = 0
 for item in data.itertuples():
+    count+=1
     if len(item) > 0:
+        print("____________")
         asd = getDataCard(item.Name, item.Cantidad)
         priceG, priceEth = getOrders(sell_token_name = item.Name)
         print("Nombre: " + item.Name)
         print("Price ETh: " + str(priceEth) + "  Price GODS: "+  str(priceG))
+        print("Longitud asd: ", len(asd), )
+        print("Contenido asd: ", asd)
+
         asd.append(priceG)
         asd.append(priceEth)
-        print(asd)
         if type(asd) != None and len(asd)>2:
           ojalases.append(asd)
           print(ojalases)
+        print("Long ojalases: ", len(ojalases))
     print("____________")
-    print(ojalases)
+
 yaves = pd.DataFrame(ojalases)
 pd.DataFrame(yaves).to_csv('final.csv')
 print("=============")
 print(yaves)
 print("sefini")
+print(count)
