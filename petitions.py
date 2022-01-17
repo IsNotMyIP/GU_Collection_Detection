@@ -293,7 +293,7 @@ def getOrders(direction= "asc",
     #print(data[0]["buy"]["data"]["quantity"])
 
 
-    return [GODS_price, ETH_price]
+    return GODS_price, ETH_price
 
 
 
@@ -311,10 +311,11 @@ ojalases = []
 for item in data.itertuples():
     if len(item) > 0:
         asd = getDataCard(item.Name, item.Cantidad)
-        price = getOrders(sell_token_name = item.Name)
+        priceG, priceEth = getOrders(sell_token_name = item.Name)
         print("Nombre: " + item.Name)
-        print("Price ETh: " + str(price[1]) + "  Price GODS: "+  str(price[0]))
-        asd.append(price)
+        print("Price ETh: " + str(priceEth) + "  Price GODS: "+  str(priceG))
+        asd.append(priceG)
+        asd.append(priceEth)
         print(asd)
         if type(asd) != None and len(asd)>2:
           ojalases.append(asd)
